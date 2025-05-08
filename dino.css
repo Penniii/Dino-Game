@@ -1,0 +1,244 @@
+body {
+  margin: 0;
+  background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
+  font-family: 'Orbitron', sans-serif;
+  overflow: hidden;
+}
+
+/* Bintang Neon */
+.stars, .stars2, .stars3 {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  background-repeat: repeat;
+  pointer-events: none;
+}
+
+.stars {
+  background-image: radial-gradient(white 2px, transparent 2px);
+  background-size: 20px 20px;
+  animation: moveStars 60s linear infinite;
+  opacity: 0.4;
+}
+
+.stars2 {
+  background-image: radial-gradient(cyan 1.5px, transparent 1.5px);
+  background-size: 30px 30px;
+  animation: moveStars 120s linear infinite;
+  opacity: 0.2;
+}
+
+.stars3 {
+  background-image: radial-gradient(#00fff7 1.2px, transparent 1.2px);
+  background-size: 40px 40px;
+  animation: moveStars 180s linear infinite;
+  opacity: 0.1;
+}
+
+
+@keyframes moveStars {
+  from { background-position: 0 0; }
+  to { background-position: -10000px 5000px; }
+}
+
+/* Game */
+.game {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+#dino {
+  position: absolute;
+  bottom: 0;
+  left: 50px;
+  width: 50px;
+  height: 50px;
+  background: cyan;
+  box-shadow: 0 0 15px cyan;
+}
+
+#dino img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 0 10px cyan);
+}
+
+#cactus {
+  position: absolute;
+  bottom: 0;
+  left: 100vw;
+  width: 30px;
+  height: 50px;
+  background: hotpink;
+  box-shadow: 0 0 15px hotpink;
+  animation: moveCactus 2s linear infinite;
+}
+
+@keyframes moveCactus {
+  0% { left: 100vw; }
+  100% { left: -60px; }
+}
+
+.jump {
+  animation: jump 0.5s ease-out;
+}
+
+@keyframes jump {
+  0% { bottom: 0; }
+  50% { bottom: 100px; }
+  100% { bottom: 0; }
+}
+
+#gameOver {
+  position: absolute;
+  top: 40%;
+  width: 100%;
+  text-align: center;
+  color: white;
+  font-size: 3rem;
+  display: none;
+  text-shadow: 0 0 10px cyan, 0 0 20px #00fff7;
+}
+
+#restartBtn {
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  background: cyan;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 0 15px cyan, 0 0 25px #00fff7;
+  cursor: pointer;
+  display: none;
+  transition: transform 0.2s ease-in-out;
+}
+
+#restartBtn:hover {
+  transform: scale(1.1);
+}
+
+#score {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  color: cyan;
+  font-size: 1.5rem;
+  text-shadow: 0 0 10px cyan;
+  z-index: 2;
+}
+
+.night-mode {
+  background: linear-gradient(to right, #000000, #1a1a2e, #0f0f1e);
+}
+
+.night-mode .stars {
+  opacity: 0.2;
+}
+.night-mode .stars2 {
+  opacity: 0.1;
+}
+.night-mode .stars3 {
+  opacity: 0.05;
+}
+
+.night-mode #dino img {
+  filter: drop-shadow(0 0 5px #0ff);
+}
+
+.night-mode #cactus {
+  background: #ff00ff;
+  box-shadow: 0 0 15px #ff00ff;
+}
+
+
+#toggleModeBtn {
+  position: fixed;
+  top: 70px;
+  right: 20px;
+  z-index: 10;
+  background: rgba(0, 255, 255, 0.3);
+  border: 2px solid cyan;
+  color: white;
+  font-size: 1rem;
+  padding: 8px 12px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px cyan;
+  cursor: pointer;
+  backdrop-filter: blur(5px);
+  transition: all 0.3s ease;
+}
+
+#toggleModeBtn:hover {
+  background: cyan;
+  color: black;
+}
+
+/* Tambahan untuk memastikan transisi animasi cactus bisa diubah via JS */
+#cactus {
+will-change: left;
+}
+
+/* Tambahan transisi halus buat dino dan cactus */
+#dino, #cactus {
+transition: all 0.1s ease;
+}
+
+/* Saat mode malam aktif, teks score ikut menyesuaikan */
+.night-mode #score {
+color: #00ffee;
+text-shadow: 0 0 15px #00ffee;
+}
+
+/* Pastikan gameOver dan restartBtn responsif di HP */
+@media screen and (max-width: 768px) {
+#gameOver {
+  font-size: 2rem;
+}
+
+#restartBtn {
+  font-size: 1rem;
+  padding: 8px 16px;
+}
+
+#score {
+  font-size: 1.2rem;
+}
+
+#toggleModeBtn {
+  font-size: 0.9rem;
+  padding: 6px 10px;
+}
+}
+
+/* Optional: animasi glow halus saat update skor */
+#score {
+animation: glowScore 2s infinite alternate;
+}
+
+@keyframes glowScore {
+from {
+  text-shadow: 0 0 10px cyan;
+}
+to {
+  text-shadow: 0 0 20px #00ffff;
+}
+}
+
+#lives {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color: cyan;
+  font-size: 1.5rem;
+  text-shadow: 0 0 10px cyan;
+  z-index: 2;
+}

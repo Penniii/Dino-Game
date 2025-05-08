@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dino Game Neon</title>
+  <link rel="stylesheet" href="dino.css">
+
+  <!-- Font Orbitron dari Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+
+  <!-- Audio -->
+  <audio id="jumpSound" src="jump.mp3" preload="auto"></audio>
+  <audio id="boinkSound" src="boink.mp3" preload="auto"></audio>
+  <audio id="bgMusic" src="bg-music.mp3" preload="auto" loop></audio>
+</head>
+<body>
+
+  <!-- Bintang Cyberpunk -->
+  <div class="stars"></div>
+  <div class="stars2"></div>
+  <div class="stars3"></div>
+
+  <!-- Tombol Mode Malam -->
+  <button id="toggleModeBtn">🌙 Mode Malam</button>
+
+  <!-- Game Container -->
+  <div class="game">
+    <!-- Karakter Dino -->
+    <div id="dino">
+      <img src="dino_no_bg.gif" alt="Dino">
+    </div>
+
+    <!-- Skor -->
+    <div id="score">Score: 0</div>
+
+    <!-- Cactus -->
+    <div id="cactus"></div>
+
+    <!-- Game Over -->
+    <h1 id="gameOver">Game Over</h1>
+
+    <!-- Restart Button -->
+    <button id="restartBtn" onclick="restartGame()">Main Lagi</button>
+  </div>
+
+  <!-- Script Game -->
+  <script src="dino.js"></script>
+</body>
+</html>
