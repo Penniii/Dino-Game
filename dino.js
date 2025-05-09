@@ -47,6 +47,12 @@ document.addEventListener("keydown", function (event) {
   }
 });
 
+// Touch event for mobile
+document.addEventListener("touchstart", function () {
+  jump();
+});
+
+
 // Update cactus animation speed
 function updateCactusSpeed() {
   cactus.style.animation = "none";

@@ -242,3 +242,51 @@ to {
   text-shadow: 0 0 10px cyan;
   z-index: 2;
 }
+
+@media screen and (max-width: 600px) {
+  #dino {
+    width: 40px;
+    height: 40px;
+    left: 30px;
+  }
+
+  #cactus, #cactus2 {
+    width: 25px;
+    height: 40px;
+  }
+
+  #gameOver {
+    font-size: 2rem;
+  }
+
+  #restartBtn {
+    font-size: 1rem;
+    padding: 8px 16px;
+  }
+
+  #score, #lives {
+    font-size: 1.2rem;
+  }
+}
+
+#tapHint {
+  position: absolute;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  font-size: 1.2rem;
+  background: rgba(0, 255, 255, 0.2);
+  padding: 5px 10px;
+  border-radius: 8px;
+  text-shadow: 0 0 10px cyan;
+  animation: fadeOut 5s forwards;
+  z-index: 3;
+}
+
+@keyframes fadeOut {
+  0% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { opacity: 0; display: none; }
+}
+
