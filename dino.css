@@ -86,14 +86,16 @@ body {
 }
 
 .jump {
-  animation: jump 0.5s ease-out;
+  animation: jump 0.6s ease-out; /* ditambah durasi */
 }
 
 @keyframes jump {
   0% { bottom: 0; }
-  50% { bottom: 100px; }
+  50% { bottom: 20vh; } /* Sekitar 20% dari tinggi layar */
   100% { bottom: 0; }
 }
+
+
 
 #gameOver {
   position: absolute;
